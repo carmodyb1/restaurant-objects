@@ -27,12 +27,33 @@ console.log(apple.toString());
 console.log(taco.toString());
 console.log(snickers.toString());
 
+var Beverage = function(){ 
+  this.toString = function(){
+    return "name: " + this.name + "\n" +
+           "description: " + this.description + "\n" +
+           "price: " + this.price + "\n" +
+           "ingredients: " + this.ingredients;
+  }
+}
+
+
 var Drink = function(name, description, price, ingredients) {
   this.name = name;
   this.description = description;
   this.price = price;
   this.ingredients = ingredients;
 };
+Drink.prototype = new Beverage();
+Drink.prototype.constructor = Drink;
+
+var Dish = function(){
+  this.toString = function(){
+    return "name: " + this.name + "\n" +
+           "description: " + this.description + "\n" +
+           "price: " + this.price + "\n" +
+           "ingredients: " + this.ingredients;
+  }
+}
 
 var Plate = function(name, description, price, ingredients) {
   this.name = name;
@@ -40,10 +61,37 @@ var Plate = function(name, description, price, ingredients) {
   this.price = price;
   this.ingredients = ingredients;
 };
+Plate.prototype = new Dish();
+Plate.prototype.constructor = Plate;
+
+
+
+
+var Ticket = function(){
+  this.toString = function(){
+
+    var string = "";
+    this.platesArray.forEach(function(item){
+      string += item.toString();
+      string += "\n\n"
+    })  
+    return string;  
+  }
+
+}
 
 var Order = function(platesArray) {
   this.platesArray = platesArray;
+
 };
+Order.prototype = new Ticket();
+Order.prototype.constructor = Order;
+
+
+
+
+
+
 
 var Menu = function(platesArray) {
   this.platesArray = platesArray;
