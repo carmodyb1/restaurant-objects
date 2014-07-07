@@ -13,6 +13,13 @@ var FoodItem = function(name, calories, vegan, glutenFree, citrusFree) {
   }
 };
 
+var apple = new FoodItem('Macintosh', 100, true, true, false);
+var taco = new FoodItem('Chicken', 300, false, false, false);
+var snickers = new FoodItem('Snickers', 500, false, false, true);
+
+console.log(apple.toString());
+console.log(taco.toString());
+console.log(snickers.toString());
 
 
 
