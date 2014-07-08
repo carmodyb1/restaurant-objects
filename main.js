@@ -102,9 +102,19 @@ var SuperMenu = function() {
   }	
 }
 
-
 var Menu = function(platesArray) {
   this.platesArray = platesArray;
+}
+Menu.prototype = new SuperMenu();
+Menu.prototype.constructor = Menu;
+
+var Franchise = function() {
+  this.toString = function() {
+    return 'Name: ' + this.name + '\n' +
+            'description: ' + this.description + '\n' +
+            'menu: \n' + 
+            this.menu.toString();
+  }
 }
 
 var Restaurant = function(name, description, menu) {
@@ -112,15 +122,35 @@ var Restaurant = function(name, description, menu) {
   this.description = description;
   this.menu = menu;
 };
+Restaurant.prototype = new Franchise();
+Restaurant.prototype.constructor = Restaurant;
+
+var Person = function() {
+  this.toString = function() {
+    return 'dietary Preference: ' + this.dietaryPreference;
+  };
+};
 
 var Customer = function(dietaryPreference) {
   this.dietaryPreference = dietaryPreference;	
 };
+Customer.prototype = new Person();
+Customer.prototype.constructor = Customer;
 
 
 
 
 
+
+
+// Test Data
+var drink1 = new Drink('pepsi', 'frothy goodness', 2, 'lots and lots of sugar');
+var plate1 = new Plate('pizza', 'a pie of another type', 10, 'lots and lots of cheese');
+var plate2 = new Plate('salad', 'kind of like pizza but not really', 14, 'lots and lots of cheese');
+var order = new Order([plate1, plate2]);
+var menu = new Menu([plate1, plate2]);
+var restaurant = new Restaurant('Bob\'s Seafood', 'Pizza and salad, and lots of cheese.', menu);
+var customer = new Customer('carnivore');
 
 
 
