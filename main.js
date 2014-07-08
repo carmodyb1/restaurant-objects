@@ -60,7 +60,18 @@ var Plate = function(name, description, price, ingredients) {
   this.description = description;
   this.price = price;
   this.ingredients = ingredients;
+  this.dietaryRestriction = function(restriction) {
+    for(var i = 0; i < this.ingredients.length; i++) {
+      if(ingredients[i][restriction] === false) {
+        return 'you can\'t eat this';
+      }
+      else {
+        return 'Go ahead, its fine!';
+      }
+    };
+  };
 };
+
 Plate.prototype = new Dish();
 Plate.prototype.constructor = Plate;
 
@@ -145,8 +156,8 @@ Customer.prototype.constructor = Customer;
 
 // Test Data
 var drink1 = new Drink('pepsi', 'frothy goodness', 2, 'lots and lots of sugar');
-var plate1 = new Plate('pizza', 'a pie of another type', 10, 'lots and lots of cheese');
-var plate2 = new Plate('salad', 'kind of like pizza but not really', 14, 'lots and lots of cheese');
+var plate1 = new Plate('pizza', 'a pie of another type', 10, [taco, snickers]);
+var plate2 = new Plate('salad', 'kind of like pizza but not really', 14, [apple]);
 var order = new Order([plate1, plate2]);
 var menu = new Menu([plate1, plate2]);
 var restaurant = new Restaurant('Bob\'s Seafood', 'Pizza and salad, and lots of cheese.', menu);
