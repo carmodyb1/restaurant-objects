@@ -91,6 +91,16 @@ Order.prototype.constructor = Order;
 
 
 
+var SuperMenu = function() {
+  this.toString = function() {
+    var string = "";
+    this.platesArray.forEach(function(item){
+      string += item.toString();
+      string += "\n\n"
+    })
+    return string;
+  }	
+}
 
 
 var Menu = function(platesArray) {
