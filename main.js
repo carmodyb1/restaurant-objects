@@ -23,9 +23,9 @@ var apple = new FoodItem('Macintosh', 100, true, true, false);
 var taco = new FoodItem('Chicken', 300, false, false, false);
 var snickers = new FoodItem('Snickers', 500, false, false, true);
 
-console.log(apple.toString());
-console.log(taco.toString());
-console.log(snickers.toString());
+// console.log(apple.toString());
+// console.log(taco.toString());
+// console.log(snickers.toString());
 
 var Beverage = function(){ 
   this.toString = function(){
@@ -150,10 +150,6 @@ Customer.prototype.constructor = Customer;
 
 
 
-
-
-
-
 // Test Data
 var drink1 = new Drink('pepsi', 'frothy goodness', 2, 'lots and lots of sugar');
 var plate1 = new Plate('pizza', 'a pie of another type', 10, [taco, snickers]);
@@ -164,8 +160,19 @@ var restaurant = new Restaurant('Bob\'s Seafood', 'Pizza and salad, and lots of 
 var customer = new Customer('carnivore');
 
 
-
-
 $(document).on('ready', function() {
+
+  console.log(menu);
+
   
 });
+
+
+
+
+
+
+
+
+
+
