@@ -148,7 +148,18 @@ var Customer = function(dietaryPreference) {
 Customer.prototype = new Person();
 Customer.prototype.constructor = Customer;
 
+var addItemToMenu = function(item){
+  var ingredients = [];
+  item.ingredients.forEach(function(foodItem){
+    ingredients.push(foodItem.name);
+  });
 
+  $(".menu ul").append('<li>' + item.name + '<br>' + 
+                        '<p>' +  ingredients.join(', ') + '</p>' +
+
+                            '</li>')
+
+}
 
 // Test Data
 var drink1 = new Drink('pepsi', 'frothy goodness', 2, 'lots and lots of sugar');
@@ -162,9 +173,11 @@ var customer = new Customer('carnivore');
 
 $(document).on('ready', function() {
 
-  console.log(menu);
+  menu.platesArray.forEach(function(item){
+    addItemToMenu(item);  
 
-  
+    
+  })
 });
 
 
